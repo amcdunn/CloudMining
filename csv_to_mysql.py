@@ -7,23 +7,18 @@ mydb = MySQLdb.connect(host='sql.mit.edu',
     passwd=getpass.getpass("Password for sql.mit.edu:"),
     db='amcdunn+LL_dictionary')
 cursor = mydb.cursor()
-cursor.execute("SELECT * FROM dummy_dictionary")
-print(cursor.fetchall())
-csv_file = raw_input("Enter path of csv file:")
-sql = """LOAD DATA LOCAL INFILE '{}' \
-      INTO TABLE dummy_dictionary \
-      FIELDS TERMINATED BY ',' \
-      OPTIONALLY ENCLOSED BY '"'  \
-      LINES TERMINATED BY '\r\n' \
-      IGNORE 0 LINES;;"""
-try:
-    print(sql.format(csv_file))
-    cursor.execute(sql.format(csv_file))
-    mydb.commit()
-except Exception:
-    mydb.rollback()
-    print("Error adding lines to database")
-#close the connection to the database.
-mydb.commit()
+
+csv_data = csv.reader(raw_input("Enter path of csv file:"))
+for row in csv_data:
+    try:
+        cursor.execute('INSERT INTO testcsv(names, \
+              classes, mark )' \
+              'VALUES("%s", "%s", "%s")', 
+              row)
+        mydb.commit()
+    except Exception:
+        mydb.rollback()
+        print("Error adding this row to database:\n"+row)
+
 cursor.close()
 print "Done"
