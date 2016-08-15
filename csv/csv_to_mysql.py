@@ -11,15 +11,14 @@ cursor = mydb.cursor()
 csv_data = csv.reader(file(raw_input("Enter path of csv file:"),'rU'),dialect=csv.excel_tab)
 for row in csv_data:
     try:
-        cursor.execute('INSERT INTO testcsv(names, \
-              classes, mark )' \
-              'VALUES("%s", "%s", "%s")', 
+        cursor.execute('INSERT INTO `TABLE 2`' \
+              'VALUES("%s", "%s")', 
               row)
         print("got through execute command for a row")
         mydb.commit()
     except Exception:
         mydb.rollback()
-        print("Error adding this row to database:\n".join(row))
+        print("Error adding this row to database:\n"+" ".join(row))
 
 cursor.close()
 print "Done"
