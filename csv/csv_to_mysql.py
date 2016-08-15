@@ -15,6 +15,7 @@ for row in csv_data:
               classes, mark )' \
               'VALUES("%s", "%s", "%s")', 
               row)
+        print("got through execute command for a row")
         mydb.commit()
     except Exception:
         mydb.rollback()
