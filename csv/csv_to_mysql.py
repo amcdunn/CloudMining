@@ -1,6 +1,7 @@
 import csv
 import MySQLdb
 import getpass
+import traceback
 
 mydb = MySQLdb.connect(host='sql.mit.edu',
     user='amcdunn',
@@ -18,6 +19,7 @@ for row in csv_data:
         mydb.commit()
     except Exception:
         mydb.rollback()
+        traceback.print_exc()
         print("Error adding this row to database:\n"+" ".join(row))
 
 cursor.close()
