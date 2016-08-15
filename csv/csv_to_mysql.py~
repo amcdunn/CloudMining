@@ -2,7 +2,7 @@ import csv
 import MySQLdb
 import getpass
 import traceback
-###macbook
+
 mydb = MySQLdb.connect(host='sql.mit.edu',
     user='amcdunn',
     passwd='freddy8',
