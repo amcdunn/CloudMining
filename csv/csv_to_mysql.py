@@ -18,7 +18,7 @@ for row in csv_data:
         mydb.commit()
     except Exception:
         mydb.rollback()
-        print("Error adding this row to database:\n"+row)
+        print("Error adding this row to database:\n"+row.toString())
 
 cursor.close()
 print "Done"
