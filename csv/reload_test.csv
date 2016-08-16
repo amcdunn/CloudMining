@@ -1,5 +1,6 @@
-ID,Title,Description
-INT,VARCHAR(30),TEXT
-a unique identifier,the title,a description of the entry
-123,My Great Entry,this entry is pretty great.
-321,My OK Entry,this entry is just ok.
+ID,Title,Description,Another thing
+VARCHAR(3),VARCHAR(30),TEXT,TEXT
+a unique identifier,the title,a description of the entry,maybe some tags
+123,My Great Entry,this entry is pretty great.,"tags, good tags"
+321,My OK Entry,this entry is just ok.,"tags, many good, good tags"
+558,My Super Entry,this entry is super.,
