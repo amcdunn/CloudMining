@@ -1,0 +1,5 @@
+ID,Title,Description
+INT,VARCHAR(30),TEXT
+a unique identifier,the title,a description of the entry
+123,My Great Entry,this entry is pretty great.
+321,My OK Entry,this entry is just ok.
