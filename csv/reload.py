@@ -18,14 +18,20 @@ create = "DROP TABLE IF EXISTS {0}; \
 
 csv_data = csv.reader(file(test_csv_path,'rU'))
 
-col_data = zip(*csv_data[:num_header_rows])
+header_rows = ()
+for counter, row in enumerate(csv_data):
+    if counter < num_header_rows:
+        header_rows.append(row)
+    else:
+        break
+col_data = zip(*header_rows)
 for col in col_data:
     create += "{} {} COMMENT \'{}\',".format(*col)
 
 create = create[:-1]+") CHARACTER SET ascii; "
 #done with create table
 
-for row in csv_data[num_header_rows:]:
+for row in csv_data:
     try:
         cursor.execute('INSERT INTO {}'.format(tbl_name) \
               'VALUES{}'.format(row))
