@@ -29,12 +29,13 @@ for col in col_data:
     create += "{} {} COMMENT \'{}\',".format(*col)
 
 create = create[:-1]+") CHARACTER SET ascii; "
+cursor.execute(create)
 #done with create table
 
 for row in csv_data:
     try:
         cursor.execute('INSERT INTO {}'.format(tbl_name) \
-              'VALUES{}'.format(row))
+              'VALUES{}'.format(tuple(row)))
         mydb.commit()
     except Exception:
         mydb.rollback()
