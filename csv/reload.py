@@ -18,11 +18,10 @@ create = "DROP TABLE IF EXISTS {0}; \
 
 csv_data = csv.reader(file(test_csv_path,'rU'))
 
-header_rows = ()
+header_rows = []
 for counter, row in enumerate(csv_data):
-    if counter < num_header_rows:
-        header_rows.append(row)
-    else:
+    header_rows.append(row)
+    if counter==num_header_rows-1:
         break
 col_data = zip(*header_rows)
 for col in col_data:
@@ -30,15 +29,15 @@ for col in col_data:
 
 create = create[:-1]+") CHARACTER SET ascii; "
 cursor.execute(create)
+cursor.close()
 #done with create table
 
+cursor = mydb.cursor()
 for row in csv_data:
     try:
-        cursor.execute('INSERT INTO {}'.format(tbl_name) \
-              'VALUES{}'.format(tuple(row)))
+        cursor.execute('INSERT INTO {}'.format(tbl_name)+" VALUES{}".format(tuple(row)))
         mydb.commit()
     except Exception:
-        mydb.rollback()
         traceback.print_exc()
         print("Error adding this row to database:\n"+" ".join(row))
 
