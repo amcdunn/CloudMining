@@ -25,9 +25,6 @@ for col in col_data:
 create = create[:-1]+") CHARACTER SET ascii; "
 #done with create table
 
-"INSERT INTO reload_test VALUES(1,'Test Title','Test Blob');
-
-
 for row in csv_data[num_header_rows:]:
     try:
         cursor.execute('INSERT INTO {}'.format(tbl_name) \
