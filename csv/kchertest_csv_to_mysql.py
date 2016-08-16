@@ -1,0 +1,24 @@
+import csv
+import MySQLdb
+import getpass
+import traceback
+
+mydb = MySQLdb.connect(host='sql.mit.edu',
+    user='kcher',
+    passwd=getpass.getpass("Password for sql.mit.edu:"),
+    db='kcher+testbase')
+cursor = mydb.cursor()
+command = 'INSERT INTO `testtable` VALUES("%s", "%s", "%i", "%i")'
+
+csv_data = csv.reader(file(raw_input("Enter path of csv file:"),'rU'))
+for row in csv_data:
+    try:
+        cursor.execute(command, row)
+        mydb.commit()
+    except Exception:
+        mydb.rollback()
+        traceback.print_exc()
+        print("Error adding this row to database:\n"+" ".join(row))
+
+cursor.close()
+print "Done"
