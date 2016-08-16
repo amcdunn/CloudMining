@@ -18,7 +18,7 @@ create = "DROP TABLE IF EXISTS {0}; \
 
 csv_data = csv.reader(file(test_csv_path,'rU'))
 
-header_rows = ()
+header_rows = []
 for counter, row in enumerate(csv_data):
     if counter < num_header_rows:
         header_rows.append(row)
