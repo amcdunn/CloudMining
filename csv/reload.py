@@ -27,8 +27,7 @@ create = create[:-1]+") CHARACTER SET ascii; "
 
 for row in csv_data[num_header_rows:]:
     try:
-        cursor.execute('INSERT INTO {}'.format(tbl_name) \
-              'VALUES{}'.format(row))
+        cursor.execute('INSERT INTO {}'.format(tbl_name)+"VALUES{}".format(row))
         mydb.commit()
     except Exception:
         mydb.rollback()
