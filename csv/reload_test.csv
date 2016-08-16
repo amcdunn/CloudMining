@@ -1,4 +1,4 @@
-ID,Title,Description,Another thing
+ID,Title,Description,Another_thing
 VARCHAR(3),VARCHAR(30),TEXT,TEXT
 a unique identifier,the title,a description of the entry,maybe some tags
 123,My Great Entry,this entry is pretty great.,"tags, good tags"

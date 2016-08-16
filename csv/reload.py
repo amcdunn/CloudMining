@@ -28,6 +28,7 @@ for col in col_data:
     create += "{} {} COMMENT \'{}\',".format(*col)
 
 create = create[:-1]+") CHARACTER SET ascii; "
+print("Command sent to MySQL: "+create)
 cursor.execute(create)
 cursor.close()
 #done with create table
