@@ -1,5 +1,5 @@
 # database parameters
-db_params = dict(user='fsphinx', passwd='fsphinx', db='fsphinx')
+db_params = dict(user='fsphinx', passwd='fsphinx', db='imdb_sample')
 
 # list of SQL queries to fetch the features from
 sql_features = [
