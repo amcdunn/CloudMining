@@ -5,7 +5,7 @@ import fsphinx
 from fsphinx import FSphinxClient, Facet, DBFetch, MultiFieldQuery, QueryParser, hits
 
 # database parameters
-db = web.database(dbn='mysql', db='fsphinx', user='fsphinx', passwd='fsphinx')
+db = web.database(dbn='mysql', db='imdb_sample', user='fsphinx', passwd='fsphinx')
 
 # redis cache pparameters
 redis_cache = fsphinx.RedisCache(db=1)
@@ -20,7 +20,7 @@ db.query('set group_concat_max_len = 50000')
 cl = FSphinxClient()
 
 # connect to searchd
-cl.SetServer('localhost', 10001)
+cl.SetServer('https://a2plcpnl0275.prod.iad2.secureserver.net', 10001)
 
 # we don't accept queries which take longer than 2 sec.
 #cl.SetConnectTimeout(2.0)

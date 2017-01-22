@@ -2,7 +2,7 @@
 from cloudmining import CloudMiningApp
 
 # assumes a default directory structure
-app = CloudMiningApp.from_directory('.', autoreload=True)
+app = CloudMiningApp.from_directory('/home/letterlocked/CloudMining/examples/imdb', autoreload=True)
 
 # what sorting options are shown (key must match cl sort options)
 app.set_ui_sort_by(

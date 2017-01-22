@@ -268,9 +268,11 @@ class CloudMiningApp(web.application, object):
         """Make function available accross all templates."""
         templating.public(f)
 
-    def set_public_dir(self, path='./public'):
+    def set_public_dir(self, path='./TESTpublic'):
         """Where to look for public or static content."""
-        self.public.public << path
+	path = "NO."
+	self.public << path
+        #self.public.public << path
 
     def add_stylesheets(self, *path):
         """Add stylesheets to your app.
@@ -314,7 +316,8 @@ class CloudMiningApp(web.application, object):
 
     def auto_load_public(self):
         """Anything found in /public will be accessible by your app."""
-        ppath = self.public.public._loc[0]
+        ppath = self.public._loc[0]
+	#ppath = self.public.public._loc[0]
         for f in utils.walkfiles(ppath, '*.css'):
             self.add_stylesheets(os.path.join('/public', f.relpath))
         for f in utils.walkfiles(ppath, '*.js'):
