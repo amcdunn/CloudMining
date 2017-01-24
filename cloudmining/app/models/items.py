@@ -71,7 +71,7 @@ def get_facets_from_cache(query, user_pref={}):
         setup_user_pref(cl, user_pref)
     # return the facets from the cache if found
     #cl.SetConnectTimeout(100.0)
-    query.ALLOW_EMPTY = True
+    query.ALLOW_EMPTY = False
     if cl.facets:
         cl.facets.Compute(query)
     return cl.facets
