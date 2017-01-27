@@ -13,7 +13,7 @@ view = web.config.view
 class front_page:
     def GET(self):
         pref = user_pref.reset()
-        facets = items.get_facets_from_cache('', pref)
+	facets = items.get_facets_from_cache('', pref)
         return view.layout(view.front_page(facets, pref))
 
 

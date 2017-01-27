@@ -357,7 +357,7 @@ class CloudMiningApp(web.application, object):
             print 'Preloading the search cache with persistent keys ...'
             self.cl.cache.Loads(self.preload_cache_file, -1)
 
-        sys.argv = (None, '0.0.0.0:%s' % self.port)
+        sys.argv = (None, '107.180.41.38:%s' % self.port)
         web.application.run(self, *midleware)
 
     @classmethod

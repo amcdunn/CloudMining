@@ -14,7 +14,7 @@ def get_sphinx_client(query):
     if is_sim_query(query, is_active=True):
         cl = config.sim_cl.Clone()
     else:
-        cl = config.cl.Clone()
+        cl = config.cl.Clone() 
     return cl
  
 

@@ -103,4 +103,5 @@ query_parser = QueryParser(MultiFieldQuery, user_sph_map={
     'director' : 'directors',
     'actor' : 'actors'
 })
+
 cl.AttachQueryParser(query_parser)
