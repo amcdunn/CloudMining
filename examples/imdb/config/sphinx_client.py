@@ -20,7 +20,7 @@ db.query('set group_concat_max_len = 50000')
 cl = FSphinxClient()
 
 # connect to searchd
-cl.SetServer('https://a2plcpnl0275.prod.iad2.secureserver.net', 10001)
+cl.SetServer('http://0.0.0.0', 10001)
 
 # we don't accept queries which take longer than 2 sec.
 #cl.SetConnectTimeout(2.0)
